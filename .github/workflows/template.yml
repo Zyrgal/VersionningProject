@@ -8,7 +8,7 @@ env:
 jobs:
   testRunner:
     needs: checkLicense
-    name: Test all modes 📝
+    name: Test all modes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
