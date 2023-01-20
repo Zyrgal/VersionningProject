@@ -13,10 +13,12 @@ public class MobManager : MonoBehaviour
     private float speed;
     private int iPathPoint;
     private bool bIncrease;
+    private float fStartY;
 
     void Start()
     {
         iPathPoint = 0;
+        fStartY = transform.position.y;
     }
 
     // Update is called once per frame
@@ -29,14 +31,14 @@ public class MobManager : MonoBehaviour
 
     private void PatrolSystem()
     {
-        transform.position = Vector2.MoveTowards(transform.position, tPatrolPath[iPathPoint].position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, fStartY), new Vector2(tPatrolPath[iPathPoint].position.x, fStartY), speed * Time.deltaTime);
 
 
     }
 
     private void PointDistanceCheck()
     {
-        if (Vector2.Distance(transform.position, tPatrolPath[iPathPoint].position) < 0.5f)
+        if (-0.5f <= (transform.position.x - tPatrolPath[iPathPoint].position.x) && (transform.position.x - tPatrolPath[iPathPoint].position.x) <= 0.5f)
         {
             if (!bLoop)
             {
