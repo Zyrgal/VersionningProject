@@ -433,10 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70313e81135164b4ca18af683f63e788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
-  rayCount: 200
-  size: 1
-  blocksLightMask:
+  m_offset: {x: 0, y: 0, z: 0}
+  m_rayCount: 200
+  m_size: 1
+  m_blocksLightMask:
     serializedVersion: 2
     m_Bits: 64
 --- !u!33 &1893092755
