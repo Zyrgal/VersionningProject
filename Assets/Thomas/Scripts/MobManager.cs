@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class MobManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    private Transform[] tPatrolPath;
+    [SerializeField]
+    private bool bLoop;
+    [SerializeField]
+    private float speed;
+
     void Start()
     {
         
@@ -13,6 +20,14 @@ public class MobManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Vector2.Distance(transform.position, tPatrolPath[].position) < 1f)
+        {
+
+        }
+    }
+
+    private void PatrolSystem()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, tPatrolPath[].position, speed * Time.deltaTime);
     }
 }
