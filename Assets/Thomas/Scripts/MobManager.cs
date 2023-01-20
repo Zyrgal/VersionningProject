@@ -11,23 +11,56 @@ public class MobManager : MonoBehaviour
     private bool bLoop;
     [SerializeField]
     private float speed;
+    private int iPathPoint;
+    private bool bIncrease;
 
     void Start()
     {
-        
+        iPathPoint = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, tPatrolPath[].position) < 1f)
-        {
+        PointDistanceCheck();
 
-        }
+        PatrolSystem();
     }
 
     private void PatrolSystem()
     {
-        transform.position = Vector2.MoveTowards(transform.position, tPatrolPath[].position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, tPatrolPath[iPathPoint].position, speed * Time.deltaTime);
+
+
     }
+
+    private void PointDistanceCheck()
+    {
+        if (Vector2.Distance(transform.position, tPatrolPath[iPathPoint].position) < 0.5f)
+        {
+            if (!bLoop)
+            {
+                ++iPathPoint;
+                if (iPathPoint >= tPatrolPath.Length)
+                    iPathPoint = 0;
+            }
+            else
+            {
+                if (bIncrease)
+                {
+                    ++iPathPoint;
+                    if (iPathPoint >= tPatrolPath.Length)
+                        bIncrease = false;
+                }
+                else
+                {
+                    --iPathPoint;
+                    if (iPathPoint < 0)
+                        bIncrease = true;
+                }
+            }
+
+        }
+    }
+
 }
