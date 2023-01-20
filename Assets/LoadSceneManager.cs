@@ -18,6 +18,9 @@ public class LoadSceneManager : MonoBehaviour
     public void UI_Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameObject.GetComponent<MenuManager>().CloseWinMenu();
+        gameObject.GetComponent<MenuManager>().CloseLoseMenu();
+        gameObject.GetComponent<MenuManager>().ClosePauseMenu();
     }
 
     public void UI_BackToMenu()
