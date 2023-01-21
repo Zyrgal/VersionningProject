@@ -45,6 +45,5 @@ public class LoadSceneManager : MonoBehaviour
     public void UI_Quit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
