@@ -14,11 +14,12 @@ public class MobManager : MonoBehaviour
     private int iPathPoint;
     private bool bIncrease = true;
     private float fStartY;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>());
+
         CheckForOrientation();
 
         iPathPoint = 0;
@@ -36,9 +37,19 @@ public class MobManager : MonoBehaviour
     void CheckForOrientation()
     {
         if (transform.position.x - tPatrolPath[iPathPoint].position.x < 0)
-            spriteRenderer.flipX = true;
+        {
+            foreach (var item in spriteRenderers)
+            {
+                item.flipX = true;
+            }
+        }
         else
-            spriteRenderer.flipX = false;
+        {
+            foreach (var item in spriteRenderers)
+            {
+                item.flipX = false;
+            }
+        }
     }
 
     private void PatrolSystem()
