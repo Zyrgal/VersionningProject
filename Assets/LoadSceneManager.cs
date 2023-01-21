@@ -24,6 +24,7 @@ public class LoadSceneManager : MonoBehaviour
     public void UI_Play()
     {
         gameObject.GetComponent<MenuManager>().canPause = true;
+        MenuManager.instance.CloseStartMenu();
         SceneManager.LoadScene(1);
     }
 

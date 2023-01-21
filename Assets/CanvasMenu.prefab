@@ -2705,10 +2705,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89857ead859a6cf4b9a3ee918b482a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPause: 0
   canPause: 0
   pauseMenu: {fileID: 3816017975375277555}
   winMenu: {fileID: 3816017974534702772}
   loseMenu: {fileID: 3816017973857729380}
+  startMenu: {fileID: 3816017975068212596}
 --- !u!1 &3816017975042341129
 GameObject:
   m_ObjectHideFlags: 0

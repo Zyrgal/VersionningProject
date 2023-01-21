@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject loseMenu;
+    [SerializeField] GameObject startMenu;
 
     public void Start()
     {
@@ -30,7 +31,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            if (isPause && canPause)
+            if (!isPause && canPause)
             {
                 UI_Pause();
             }
@@ -43,16 +44,25 @@ public class MenuManager : MonoBehaviour
 
     public void UI_Pause()
     {
-        isPause = false;
-        Time.timeScale = 0;
+        isPause = true;
+        //Time.timeScale = 0;
         OpenPauseMenu();
     }
 
     public void UI_Resume()
     {
-        isPause = true;
-        Time.timeScale = 1;
+        isPause = false;
+        //Time.timeScale = 1;
         ClosePauseMenu();
+    }
+    public void OpenStartMenu()
+    {
+        startMenu.SetActive(true);
+    }
+
+    public void CloseStartMenu()
+    {
+        startMenu.SetActive(false);
     }
 
     public void OpenPauseMenu()
