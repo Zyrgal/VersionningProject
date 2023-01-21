@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MobManager : MonoBehaviour
 {
-
+    [SerializeField]
+    float m_killDistance = 1f;
     [SerializeField]
     private Transform[] tPatrolPath;
     [SerializeField]
@@ -15,6 +16,8 @@ public class MobManager : MonoBehaviour
     private bool bIncrease = true;
     private float fStartY;
     [SerializeField] List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
+    [SerializeField]
+    PlayerLightingScript m_playerLightScript;
 
     void Start()
     {
@@ -32,6 +35,8 @@ public class MobManager : MonoBehaviour
         PointDistanceCheck();
 
         PatrolSystem();
+
+        CheckPlayerDistance();
     }
 
     void CheckForOrientation()
@@ -90,6 +95,22 @@ public class MobManager : MonoBehaviour
                 }
             }
             CheckForOrientation();
+        }
+    }
+
+    void CheckPlayerDistance()
+    {
+        if (!m_playerLightScript.LightIsActive)
+        {
+            return;
+        }
+
+        Vector3 playerPos = m_playerLightScript.gameObject.transform.position;
+        float distance = Vector3.Distance(playerPos, transform.position);
+
+        if (distance <= m_killDistance)
+        {
+            MenuManager.instance.OpenLoseMenu();
         }
     }
 
