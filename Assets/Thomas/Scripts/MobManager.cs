@@ -10,13 +10,17 @@ public class MobManager : MonoBehaviour
     [SerializeField]
     private bool bLoop;
     [SerializeField]
-    private float speed;
+    private float speed = 3;
     private int iPathPoint;
     private bool bIncrease = true;
     private float fStartY;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        CheckForOrientation();
+
         iPathPoint = 0;
         fStartY = transform.position.y;
     }
@@ -27,6 +31,14 @@ public class MobManager : MonoBehaviour
         PointDistanceCheck();
 
         PatrolSystem();
+    }
+
+    void CheckForOrientation()
+    {
+        if (transform.position.x - tPatrolPath[iPathPoint].position.x < 0)
+            spriteRenderer.flipX = true;
+        else
+            spriteRenderer.flipX = false;
     }
 
     private void PatrolSystem()
@@ -66,7 +78,7 @@ public class MobManager : MonoBehaviour
                     }
                 }
             }
-
+            CheckForOrientation();
         }
     }
 
