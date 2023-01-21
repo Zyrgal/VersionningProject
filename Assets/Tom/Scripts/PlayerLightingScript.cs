@@ -29,12 +29,7 @@ public class PlayerLightingScript : MonoBehaviour
     }
 
     private void Update()
-    {  
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            _lightIsActive = !_lightIsActive;
-            GetComponent<MeshRenderer>().enabled = _lightIsActive;
-        }
+    {
 
         if (_lightIsActive)
         {
@@ -82,6 +77,16 @@ public class PlayerLightingScript : MonoBehaviour
             _mesh.uv = uv;
             _mesh.triangles = triangles;
         }
-    }
 
+        if (MenuManager.instance.isPause)
+        {
+            return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            _lightIsActive = !_lightIsActive;
+            GetComponent<MeshRenderer>().enabled = _lightIsActive;
+        }
+    }
 }

@@ -67,31 +67,37 @@ public class MenuManager : MonoBehaviour
 
     public void OpenPauseMenu()
     {
+        isPause = true;
         pauseMenu.SetActive(true);
     }
 
     public void ClosePauseMenu()
     {
+        isPause = false;
         pauseMenu.SetActive(false);
     }
 
     public void OpenWinMenu()
     {
+        isPause = true;
         winMenu.SetActive(true);
     }
 
     public void CloseWinMenu()
     {
+        isPause = false;
         winMenu.SetActive(false);
     }
 
     public void OpenLoseMenu()
     {
+        isPause = true;
         loseMenu.SetActive(true);
     }
 
     public void CloseLoseMenu()
     {
+        isPause = false;
         loseMenu.SetActive(false);
     }
 

@@ -32,6 +32,11 @@ public class MobManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MenuManager.instance.isPause)
+        {
+            return;
+        }
+
         PointDistanceCheck();
 
         PatrolSystem();
@@ -69,7 +74,6 @@ public class MobManager : MonoBehaviour
             if (bLoop)
             {
                 ++iPathPoint;
-                Debug.Log(iPathPoint);
                 if (iPathPoint >= tPatrolPath.Length)
                     iPathPoint = 0;
             }

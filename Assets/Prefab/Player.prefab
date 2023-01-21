@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2575789296575824610}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 1000
   JumpForce: 4
+  playerlightScript: {fileID: 2758985817131908469}
 --- !u!50 &2575789296575824609
 Rigidbody2D:
   serializedVersion: 4
@@ -272,3 +273,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2758985817582575177, guid: c4a58656b8406ab429ad44a74be6d23e, type: 3}
   m_PrefabInstance: {fileID: 522543930}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2758985817131908469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2758985817582575183, guid: c4a58656b8406ab429ad44a74be6d23e, type: 3}
+  m_PrefabInstance: {fileID: 522543930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70313e81135164b4ca18af683f63e788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

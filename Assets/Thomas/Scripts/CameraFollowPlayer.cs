@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollowPlayer : MonoBehaviour
 {
     private GameObject _gPlayer;
+    [SerializeField]
     private Vector3 offset = new Vector3(0f, 0f, -10f);
     private Vector3 velocity = Vector3.zero;
     private float smoothTime = 0.25f;
