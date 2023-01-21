@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5371485388073792314}
   - component: {fileID: 5371485388073792293}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
