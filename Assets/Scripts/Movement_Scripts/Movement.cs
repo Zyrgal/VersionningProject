@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (MenuManager.instance.isPause)
         {
