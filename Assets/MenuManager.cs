@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager instance = null;
 
-    private bool isPause = false;
+    public bool isPause = false;
     [HideInInspector]
     public bool canPause = false;
 
