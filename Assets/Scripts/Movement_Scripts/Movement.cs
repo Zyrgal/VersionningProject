@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float MovementSpeed = 1;
-    public float JumpForce = 1;
+    public float MovementSpeed = 1000;
+    public float JumpForce = 4;
 
     private Rigidbody2D _rigidbody;
 
-    // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
+        _rigidbody.velocity = new Vector2(movement, 0) * Time.deltaTime * MovementSpeed;
 
         if (!Mathf.Approximately(0, movement))
             transform.rotation = movement > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
