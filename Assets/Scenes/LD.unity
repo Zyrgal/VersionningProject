@@ -986,6 +986,10 @@ PrefabInstance:
       propertyPath: sprite
       value: 
       objectReference: {fileID: 640109731}
+    - target: {fileID: 2575789296575824604, guid: cd5f784a37ee6414187b53be91f28f17, type: 3}
+      propertyPath: MovementSpeed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2575789296575824605, guid: cd5f784a37ee6414187b53be91f28f17, type: 3}
       propertyPath: m_Name
       value: Player
